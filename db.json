@@ -1,0 +1,125 @@
+{
+    "orders": [
+        {
+            "id": 4657,
+            "items": [
+                {
+                    "sku": 363363,
+                    "name": "B&B Half sleeve T-shirt",
+                    "quantity": 2,
+                    "type": "t-shirt",
+                    "weight": 0.2,
+                    "unit": "kg",
+                    "image": ""
+                },
+                {
+                    "sku": 363365,
+                    "name": "Backpack Mountain",
+                    "quantity": 1,
+                    "type": "bag",
+                    "weight": 0.8,
+                    "unit": "kg",
+                    "image": ""
+                },
+                {
+                    "sku": 363346,
+                    "name": "Thermoflask",
+                    "quantity": 1,
+                    "type": "bottle",
+                    "weight": 0.4,
+                    "unit": "kg",
+                    "image": ""
+                }
+            ],
+            "total_weight": "1.6",
+            "unit": "kg",
+            "customer": {
+                "name": "Shehab Ahmed",
+                "email": "shehabahmed@gmail.com",
+                "phone": "123456789",
+                "address": "House-25,Road-6",
+                "area": "Rampura",
+                "city": "Dhaka"
+            },
+            "customer_note": "",
+            "payment_type": "Online Payment",
+            "status": "Payment Pending",
+            "created_at": 1700721482,
+            "confirmed_at": 1700721482,
+            "paid_at": null,
+            "shipped_at": null,
+            "delivered_at": null
+        },
+        {
+            "id": 4658,
+            "items": [
+                {
+                    "sku": 363346,
+                    "name": "Thermoflask",
+                    "quantity": 3,
+                    "type": "bottle",
+                    "weight": 0.4,
+                    "unit": "kg",
+                    "image": ""
+                }
+            ],
+            "total_weight": "1.2",
+            "unit": "kg",
+            "customer": {
+                "name": "Yemin Sajid",
+                "email": "yeminsajid@gmail.com",
+                "phone": "123456789",
+                "address": "House-5,Road-6",
+                "area": "Panthapath",
+                "city": "Dhaka"
+            },
+            "customer_note": "Beside Hotel Sonargaon",
+            "payment_type": "Bkash",
+            "status": "Shipped",
+            "created_at": 1700721482,
+            "confirmed_at": 1700721482,
+            "paid_at": 1700721482,
+            "shipped_at": 1700721482,
+            "delivered_at": null
+        }
+    ],
+    "statistics": {
+        "order": {
+            "new": 125,
+            "new_percentage": "+10",
+            "cancelled": 20,
+            "cancelled_percentage": "+5",
+            "in_progress": 78,
+            "pending": 46
+        },
+        "customer": {
+            "total_review": 1250,
+            "positive": "87%",
+            "negative": "13%"
+        }
+    },
+    "updates": [
+        {
+            "order_id": 4635,
+            "status": "shipped",
+            "approved_by": "Mahrab Hossain",
+            "updated_at": 1700721482
+        },
+        {
+            "order_id": 4642,
+            "status": "cancelled",
+            "approved_by": "Jamal Hossain",
+            "updated_at": 1700721482
+        },
+        {
+            "order_id": 4635,
+            "status": "created",
+            "approved_by": "Shehab Ahmed",
+            "updated_at": 1700721482
+        }
+    ],
+    "profile": {
+        "name": "Mahrab Hossain",
+        "image": ""
+    }
+}
