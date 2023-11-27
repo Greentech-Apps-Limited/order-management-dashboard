@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './search-bar';
 import UserMenu from './user-menu';
+import Notification from './notification';
 
 const Header = () => {
   return (
@@ -8,10 +9,9 @@ const Header = () => {
       <div className="w-72">
         <SearchBar />
       </div>
-      <div>
-        <div>
-          <UserMenu />
-        </div>
+      <div className="flex items-center justify-between gap-2">
+        <Notification />
+        <UserMenu />
       </div>
     </div>
   );
