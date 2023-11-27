@@ -5,7 +5,7 @@ import Notification from './notification';
 
 const Header = () => {
   return (
-    <div className="items-center justify-between hidden h-20 px-4 border-b border-gray-200 md:flex bg-neutral">
+    <div className="items-center justify-between hidden h-20 px-4 border-b border-gray-200 lg:flex bg-neutral">
       <div className="w-72">
         <SearchBar />
       </div>
