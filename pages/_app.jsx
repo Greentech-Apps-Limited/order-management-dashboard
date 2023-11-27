@@ -1,5 +1,5 @@
 import '@/styles/globals.css';
-import { satoshi } from '@/utils/font';
+import { satoshi } from '@/lib/font';
 
 export default function App({ Component, pageProps }) {
   return (
