@@ -23,7 +23,7 @@ const SideBar = () => {
           })}
         </div>
       </div>
-      <div className="pt-4">
+      <div className="pt-2">
         <button
           type="button"
           className="flex flex-row items-center w-full gap-2 px-4 py-2 rounded-full hover:text-primary-8 hover:bg-primary"
