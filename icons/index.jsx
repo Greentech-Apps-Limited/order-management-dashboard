@@ -11,3 +11,4 @@ export { default as InvoiceIcon } from './invoice-icon.svg';
 export { default as ProfileIcon } from './profile-icon.svg';
 export { default as SettingsIcon } from './settings-icon.svg';
 export { default as LogoutIcon } from './logout-icon.svg';
+export { default as BulletPointIcon } from './bullet-point.svg';
