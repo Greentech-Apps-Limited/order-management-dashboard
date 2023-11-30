@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { LogoutIcon } from '@/icons';
 import { SIDENAV_ITEMS } from '@/lib/constants';
 
 import BrandInfo from '../brand-info';
@@ -22,7 +23,15 @@ const SideBar = () => {
           })}
         </div>
       </div>
-      <div>logout</div>
+      <div>
+        <button
+          type="button"
+          className="flex flex-row items-center w-full gap-2 px-4 py-2 rounded-full  hover:text-primary-8 hover:bg-primary"
+        >
+          <LogoutIcon className="text-2xl" />
+          <p>Log Out</p>
+        </button>
+      </div>
     </div>
   );
 };
