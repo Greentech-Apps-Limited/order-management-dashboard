@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDownFillIcon, ArrowUpFillIcon } from '@/icons';
+import { cn } from '@/lib/utils';
 
 import Box from './box';
 import CircleIcon from './circle-icon';
@@ -22,8 +23,15 @@ const OrderStatusCard = ({ title, icon, value, percentage, isPositivePercentage 
 export default OrderStatusCard;
 
 const PercentageStatus = ({ isPositivePercentage, percentage }) => {
-  const renderIconAndText = (iconColor, arrowIcon, text) => (
-    <div className={`flex items-center gap-2 text-${iconColor}`}>
+  const renderIconAndText = (arrowIcon, text) => (
+    <div
+      className={cn({
+        'flex items-center gap-2': true,
+        'text-success-6': isPositivePercentage && percentage,
+        'text-critical-5': !isPositivePercentage && percentage,
+        'text-gray-500': !percentage,
+      })}
+    >
       {arrowIcon && (
         <div>
           {isPositivePercentage ? (
@@ -39,13 +47,9 @@ const PercentageStatus = ({ isPositivePercentage, percentage }) => {
     </div>
   );
 
-  if (isPositivePercentage && percentage) {
-    return renderIconAndText('success-6', true, 'More than avg.');
+  if (percentage) {
+    return renderIconAndText(true, isPositivePercentage ? 'More than avg.' : 'Less than avg.');
   }
 
-  if (!isPositivePercentage && percentage) {
-    return renderIconAndText('critical-5', true, 'Less than avg.');
-  }
-
-  return renderIconAndText('gray-500', false, '--Average');
+  return renderIconAndText(false, '--Average');
 };
