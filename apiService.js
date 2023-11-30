@@ -8,3 +8,7 @@ const api = axios.create({
 });
 
 export default api;
+
+export const getOrderStatistics = () => {
+  return api.get(`/statistics`);
+};
