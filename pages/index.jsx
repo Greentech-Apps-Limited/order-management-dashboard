@@ -25,6 +25,7 @@ export default function Home() {
                 const { title, icon, value, percentage, isPositivePercentage } = orderStatus;
                 return (
                   <OrderStatusCard
+                    key={orderStatus.title}
                     title={title}
                     icon={icon}
                     value={value}
