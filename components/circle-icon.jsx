@@ -7,6 +7,7 @@ const CircleIcon = ({ children, className }) => {
     'bg-gray-100',
     'text-2xl',
     'text-primary-8',
+    'w-max',
     'p-2',
     className
   );
