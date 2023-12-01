@@ -1,5 +1,6 @@
 import { getOrderStatistics } from '@/apiService';
 import CustomerSatisfaction from '@/components/customer-satisfaction';
+import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
 import Layout from '@/components/layout';
 import OrderStatusCard from '@/components/order-status-card';
 import OrderStatusCardSkeleton from '@/components/order-status-card-skeleton';
@@ -57,7 +58,11 @@ export default function Home() {
             </div>
 
             <div className="xl:order-3">
-              <CustomerSatisfaction feedbackData={feedbackData} />
+              {loading ? (
+                <CustomerSatisfactionSkeleton />
+              ) : (
+                <CustomerSatisfaction feedbackData={feedbackData} />
+              )}
             </div>
             <div className="xl:order-2">
               <OrderUpdates />
