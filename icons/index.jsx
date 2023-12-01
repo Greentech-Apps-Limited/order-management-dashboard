@@ -18,3 +18,6 @@ export { default as CancelledOrderIcon } from './cancelled-order-icon.svg';
 export { default as PendingOrderIcon } from './pending-order-icon.svg';
 export { default as ArrowUpFillIcon } from './arrow-up-fill-icon.svg';
 export { default as ArrowDownFillIcon } from './arrow-down-fill-icon.svg';
+export { default as UserFullViewIcon } from './user-full-view-icon.svg';
+export { default as VictoryFingerIcon } from './victory-finger-icon.svg';
+export { default as DontTouchIcon } from './dont-touch-icon.svg';

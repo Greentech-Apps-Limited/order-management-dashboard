@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [orderStat, setOrderState] = useState([]);
+  const [feedbackData, setFeedBackData] = useState({});
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -16,9 +17,10 @@ export default function Home() {
       setLoading(true);
       try {
         const response = await getOrderStatistics();
-        const { order } = response.data;
+        const { order, customer } = response.data;
         const modifiedData = transformOrderData(order);
         setOrderState(modifiedData);
+        setFeedBackData(customer);
       } finally {
         setLoading(false);
       }
@@ -55,7 +57,7 @@ export default function Home() {
             </div>
 
             <div className="xl:order-3">
-              <CustomerSatisfaction />
+              <CustomerSatisfaction feedbackData={feedbackData} />
             </div>
             <div className="xl:order-2">
               <OrderUpdates />
