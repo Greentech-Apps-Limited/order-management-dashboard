@@ -1,4 +1,4 @@
-import { getOrderStatistics } from '@/apiService';
+import { getOrderStatistics, getOrderUpdates } from '@/apiService';
 import CustomerSatisfaction from '@/components/customer-satisfaction';
 import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
 import Layout from '@/components/layout';
@@ -10,23 +10,38 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [orderStat, setOrderState] = useState([]);
-  const [feedbackData, setFeedBackData] = useState({});
+  const [feedbackData, setFeedbackData] = useState({});
+  const [orderUpdates, setOrderUpdates] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    async function fetchStatistics() {
-      setLoading(true);
-      try {
-        const response = await getOrderStatistics();
-        const { order, customer } = response.data;
-        const modifiedData = transformOrderData(order);
-        setOrderState(modifiedData);
-        setFeedBackData(customer);
-      } finally {
-        setLoading(false);
-      }
+  const fetchStatistics = async () => {
+    setLoading((prev) => ({ ...prev, stats: true }));
+
+    try {
+      const response = await getOrderStatistics();
+      const { order, customer } = response.data;
+      const modifiedData = transformOrderData(order);
+      setOrderState(modifiedData);
+      setFeedbackData(customer);
+    } finally {
+      setLoading((prev) => ({ ...prev, stats: false }));
     }
+  };
+
+  const fetchUpdates = async () => {
+    setLoading((prev) => ({ ...prev, updates: true }));
+
+    try {
+      const response = await getOrderUpdates();
+      setOrderUpdates(response.data);
+    } finally {
+      setLoading((prev) => ({ ...prev, updates: false }));
+    }
+  };
+
+  useEffect(() => {
     fetchStatistics();
+    fetchUpdates();
   }, []);
 
   return (
@@ -36,7 +51,7 @@ export default function Home() {
           <h1 className="text-xl">Overview</h1>
           <div className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-2">
             <div className="xl:order-1">
-              {loading ? (
+              {loading.stats ? (
                 <OrderStatusCardSkeleton />
               ) : (
                 <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -58,14 +73,14 @@ export default function Home() {
             </div>
 
             <div className="xl:order-3">
-              {loading ? (
+              {loading.stats ? (
                 <CustomerSatisfactionSkeleton />
               ) : (
                 <CustomerSatisfaction feedbackData={feedbackData} />
               )}
             </div>
             <div className="row-span-2 xl:order-2">
-              <OrderUpdates />
+              <OrderUpdates orderUpdates={orderUpdates} />
             </div>
           </div>
         </div>

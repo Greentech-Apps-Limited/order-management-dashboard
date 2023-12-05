@@ -14,7 +14,7 @@ const CustomerSatisfaction = ({ feedbackData = {} }) => {
         {Object.keys(feedbackData).map((element, index) => {
           const type = REVIEW_STAT_TYPE[element];
           return (
-            <>
+            <React.Fragment key={type.label}>
               <StatItem
                 icon={type.icon}
                 label={type.label}
@@ -24,7 +24,7 @@ const CustomerSatisfaction = ({ feedbackData = {} }) => {
               {index < Object.keys(feedbackData).length - 1 && (
                 <div className="hidden md:block w-[1px] h-20 bg-gray-100" />
               )}
-            </>
+            </React.Fragment>
           );
         })}
       </div>

@@ -4,7 +4,7 @@ import { cn, formatDate } from '@/lib/utils';
 import Box from './box';
 import CircleIcon from './circle-icon';
 
-const OrderUpdates = () => {
+const OrderUpdates = ({ orderUpdates }) => {
   return (
     <Box className="h-[455px]">
       <div className="flex flex-col h-full">
