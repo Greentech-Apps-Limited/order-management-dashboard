@@ -24,3 +24,5 @@ export { default as DontTouchIcon } from './dont-touch-icon.svg';
 export { default as OrderCancelledIcon } from './order-cancelled-icon.svg';
 export { default as OrderCreatedIcon } from './order-created-icon.svg';
 export { default as OrderShippedIcon } from './order-shipped-icon.svg';
+export { default as UpdatesIcon } from './updates-icon.svg';
+export { default as ClockIcon } from './clock-icon.svg';

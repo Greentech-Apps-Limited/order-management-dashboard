@@ -8,7 +8,7 @@ import CircleIcon from './circle-icon';
 
 const CustomerSatisfaction = ({ feedbackData = {} }) => {
   return (
-    <Box>
+    <Box className="h-full">
       <p>Customer satisfaction</p>
       <div className="flex flex-col justify-between h-full gap-4 p-4 mt-2 sm:flex-row ">
         {Object.keys(feedbackData).map((element, index) => {

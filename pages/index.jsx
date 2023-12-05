@@ -64,7 +64,7 @@ export default function Home() {
                 <CustomerSatisfaction feedbackData={feedbackData} />
               )}
             </div>
-            <div className="xl:order-2">
+            <div className="row-span-2 xl:order-2">
               <OrderUpdates />
             </div>
           </div>
