@@ -80,7 +80,7 @@ export default function Home() {
               )}
             </div>
             <div className="row-span-2 xl:order-2">
-              <OrderUpdates orderUpdates={orderUpdates} />
+              {loading.updates ? <div>loading</div> : <OrderUpdates orderUpdates={orderUpdates} />}
             </div>
           </div>
         </div>
