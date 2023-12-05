@@ -5,6 +5,7 @@ import Layout from '@/components/layout';
 import OrderStatusCard from '@/components/order-status-card';
 import OrderStatusCardSkeleton from '@/components/order-status-card-skeleton';
 import OrderUpdates from '@/components/order-updates';
+import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
 import { transformOrderData } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
@@ -80,7 +81,11 @@ export default function Home() {
               )}
             </div>
             <div className="row-span-2 xl:order-2">
-              {loading.updates ? <div>loading</div> : <OrderUpdates orderUpdates={orderUpdates} />}
+              {loading.updates ? (
+                <OrderUpdatesSkeleton />
+              ) : (
+                <OrderUpdates orderUpdates={orderUpdates} />
+              )}
             </div>
           </div>
         </div>
