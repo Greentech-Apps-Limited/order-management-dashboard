@@ -21,3 +21,6 @@ export { default as ArrowDownFillIcon } from './arrow-down-fill-icon.svg';
 export { default as UserFullViewIcon } from './user-full-view-icon.svg';
 export { default as VictoryFingerIcon } from './victory-finger-icon.svg';
 export { default as DontTouchIcon } from './dont-touch-icon.svg';
+export { default as OrderCancelledIcon } from './order-cancelled-icon.svg';
+export { default as OrderCreatedIcon } from './order-created-icon.svg';
+export { default as OrderShippedIcon } from './order-shipped-icon.svg';
