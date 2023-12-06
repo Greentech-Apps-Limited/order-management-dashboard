@@ -2,7 +2,7 @@ import React from 'react';
 import { uuidv4 } from '@/lib/utils';
 import SkeletonLoader from './skeleton-loader';
 
-const OrderStatusCardSkeleton = () => {
+const OrderStatisticCardSkeleton = () => {
   const arr = new Array(4).fill(0);
   return (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
@@ -19,4 +19,4 @@ const OrderStatusCardSkeleton = () => {
     </div>
   );
 };
-export default OrderStatusCardSkeleton;
+export default OrderStatisticCardSkeleton;

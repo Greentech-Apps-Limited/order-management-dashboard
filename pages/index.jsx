@@ -1,9 +1,12 @@
-import { getOrderStatistics } from '@/apiService';
-import Layout from '@/components/layout';
-import OrderStatusCard from '@/components/order-status-card';
-import OrderStatusCardSkeleton from '@/components/order-status-card-skeleton';
-import { transformOrderData } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+
+import { transformOrderData } from '@/lib/utils';
+
+import { getOrderStatistics } from '@/apiService';
+
+import Layout from '@/components/layout';
+import OrderStatisticCard from '@/components/order-statistic-card';
+import OrderStatisticCardSkeleton from '@/components/order-statistic-card-skeleton';
 
 export default function Home() {
   const [orderStatistics, setOrderStatistics] = useState([]);
@@ -31,13 +34,13 @@ export default function Home() {
           <h1 className="text-xl">Overview</h1>
           <div className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-2">
             {loading ? (
-              <OrderStatusCardSkeleton />
+              <OrderStatisticCardSkeleton />
             ) : (
               <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
                 {orderStatistics.map((orderStatus) => {
                   const { title, icon, value, percentage, isPositivePercentage } = orderStatus;
                   return (
-                    <OrderStatusCard
+                    <OrderStatisticCard
                       key={orderStatus.title}
                       title={title}
                       icon={icon}
