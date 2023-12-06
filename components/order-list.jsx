@@ -18,7 +18,6 @@ const OrderList = ({ orders }) => {
   ];
   return (
     <div className="w-full">
-      <h2 className="text-xl">Order Summary</h2>
       <div className="my-4 overflow-x-auto border border-gray-200 rounded-xl">
         <table className="w-full text-left text-gray-500 bg-neutral">
           <thead className="text-sm ">

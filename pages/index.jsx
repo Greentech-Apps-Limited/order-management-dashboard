@@ -11,6 +11,7 @@ import OrderUpdates from '@/components/order-updates';
 import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
 import OrderStatisticCard from '@/components/order-statistic-card';
 import OrderStatisticCardSkeleton from '@/components/order-statistic-card-skeleton';
+import OrderListSkeleton from '@/components/order-list-skeleton';
 
 export default function Home() {
   const [orderStatistics, setOrderStatistics] = useState([]);
@@ -105,7 +106,8 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full my-4 overflow-hidden">
-            <OrderList orders={orders} />
+            <h2 className="text-xl">Order Summary</h2>
+            {loading.orderList ? <OrderListSkeleton /> : <OrderList orders={orders} />}
           </div>
         </div>
       </Layout>
