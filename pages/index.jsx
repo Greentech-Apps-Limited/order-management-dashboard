@@ -1,16 +1,19 @@
-import { getOrderStatistics, getOrderUpdates } from '@/apiService';
-import CustomerSatisfaction from '@/components/customer-satisfaction';
-import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
-import Layout from '@/components/layout';
-import OrderStatusCard from '@/components/order-status-card';
-import OrderStatusCardSkeleton from '@/components/order-status-card-skeleton';
-import OrderUpdates from '@/components/order-updates';
-import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
-import { transformOrderData } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
+import { transformOrderData } from '@/lib/utils';
+
+import { getOrderStatistics, getOrderUpdates } from '@/apiService';
+
+import Layout from '@/components/layout';
+import OrderStatisticCard from '@/components/order-statistic-card';
+import OrderStatisticCardSkeleton from '@/components/order-statistic-card-skeleton';
+import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
+import CustomerSatisfaction from '@/components/customer-satisfaction';
+import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
+import OrderUpdates from '@/components/order-updates';
+
 export default function Home() {
-  const [orderStat, setOrderState] = useState([]);
+  const [orderStatistics, setOrderStatistics] = useState([]);
   const [feedbackData, setFeedbackData] = useState({});
   const [orderUpdates, setOrderUpdates] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,7 +25,7 @@ export default function Home() {
       const response = await getOrderStatistics();
       const { order, customer } = response.data;
       const modifiedData = transformOrderData(order);
-      setOrderState(modifiedData);
+      setOrderStatistics(modifiedData);
       setFeedbackData(customer);
     } finally {
       setLoading((prev) => ({ ...prev, stats: false }));
@@ -53,13 +56,13 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-2">
             <div className="xl:order-1">
               {loading.stats ? (
-                <OrderStatusCardSkeleton />
+                <OrderStatisticCardSkeleton />
               ) : (
                 <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {orderStat.map((orderStatus) => {
+                  {orderStatistics.map((orderStatus) => {
                     const { title, icon, value, percentage, isPositivePercentage } = orderStatus;
                     return (
-                      <OrderStatusCard
+                      <OrderStatisticCard
                         key={orderStatus.title}
                         title={title}
                         icon={icon}
