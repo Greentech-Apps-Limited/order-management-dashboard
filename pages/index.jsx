@@ -37,11 +37,11 @@ export default function Home() {
               <OrderStatisticCardSkeleton />
             ) : (
               <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
-                {orderStatistics.map((orderStatus) => {
-                  const { title, icon, value, percentage, isPositivePercentage } = orderStatus;
+                {orderStatistics.map((orderStatistic) => {
+                  const { title, icon, value, percentage, isPositivePercentage } = orderStatistic;
                   return (
                     <OrderStatisticCard
-                      key={orderStatus.title}
+                      key={orderStatistic.title}
                       title={title}
                       icon={icon}
                       value={value}
