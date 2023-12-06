@@ -10,7 +10,7 @@ const SubMenuContent = ({ item, pathname, subMenuOpen }) => (
     } flex-col gap-1 my-2`}
   >
     {item.subMenuItems?.map((subItem) => (
-      <>
+      <div key={subItem.path}>
         {subItem.disabled ? (
           <div className="flex items-center gap-2 px-4 py-2 mx-4 rounded-full hover:text-primary-8 hover:bg-primary">
             <BulletPointIcon className="text-[8px]" />
@@ -18,7 +18,6 @@ const SubMenuContent = ({ item, pathname, subMenuOpen }) => (
           </div>
         ) : (
           <Link
-            key={subItem.path}
             href={subItem.path}
             className={`
           flex items-center gap-2 py-2 mx-4 px-4 hover:text-primary-8 hover:bg-primary rounded-full
@@ -29,7 +28,7 @@ const SubMenuContent = ({ item, pathname, subMenuOpen }) => (
             <span>{subItem.title}</span>
           </Link>
         )}
-      </>
+      </div>
     ))}
   </div>
 );
