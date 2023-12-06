@@ -2,6 +2,7 @@ import { getOrderStatistics, getOrderUpdates } from '@/apiService';
 import CustomerSatisfaction from '@/components/customer-satisfaction';
 import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
 import Layout from '@/components/layout';
+import OrderList from '@/components/order-list';
 import OrderStatusCard from '@/components/order-status-card';
 import OrderStatusCardSkeleton from '@/components/order-status-card-skeleton';
 import OrderUpdates from '@/components/order-updates';
@@ -87,6 +88,9 @@ export default function Home() {
                 <OrderUpdates orderUpdates={orderUpdates} />
               )}
             </div>
+          </div>
+          <div className="w-full my-4 overflow-hidden">
+            <OrderList />
           </div>
         </div>
       </Layout>

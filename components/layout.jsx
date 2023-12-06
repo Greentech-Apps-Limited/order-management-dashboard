@@ -7,13 +7,13 @@ import ResponsiveSidebar from './responsive-sidebar';
 const Layout = ({ children }) => {
   return (
     <div className="flex w-full h-screen">
-      <div className="hidden lg:block">
+      <div className="hidden lg:block lg:w-72">
         <SideBar />
       </div>
       <ResponsiveSidebar>
         <SideBar />
       </ResponsiveSidebar>
-      <div className="flex flex-col w-full h-screen">
+      <div className="flex flex-col w-full lg:w-[calc(100vw-288px)] h-screen">
         <div className="z-30">
           <Header />
           <HeaderMobile />
