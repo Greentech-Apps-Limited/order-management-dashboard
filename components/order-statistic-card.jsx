@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import Box from './box';
 import CircleIcon from './circle-icon';
 
-const OrderStatusCard = ({ title, icon, value, percentage, isPositivePercentage }) => {
+const OrderStatisticCard = ({ title, icon, value, percentage, isPositivePercentage }) => {
   return (
     <Box>
       <div className="flex items-start gap-3">
@@ -20,7 +20,7 @@ const OrderStatusCard = ({ title, icon, value, percentage, isPositivePercentage 
   );
 };
 
-export default OrderStatusCard;
+export default OrderStatisticCard;
 
 const PercentageStatus = ({ isPositivePercentage, percentage }) => {
   const renderIconAndText = (arrowIcon, text) => (
