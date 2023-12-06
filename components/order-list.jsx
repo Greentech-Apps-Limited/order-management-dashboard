@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { BoxRegularIcon, WeightIcon } from '@/icons';
 import { formatDate } from '@/lib/utils';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
+import { useRouter } from 'next/router';
 import Checkbox from './checkbox';
 import OrderStatusBadge from './order-status-badge';
 
@@ -47,8 +48,15 @@ export default OrderList;
 
 const OrderItem = ({ order }) => {
   const statusType = ORDER_STATUS_TYPE[order.status];
+  const { push } = useRouter();
+  const handleNavigation = () => {
+    push(`/orders/${order.id}`);
+  };
   return (
-    <tr className="text-gray-800 border-t border-gray-200 text-start hover:bg-gray rounded-xl">
+    <tr
+      onClick={handleNavigation}
+      className="text-gray-800 border-t border-gray-200 cursor-pointer text-start hover:bg-gray rounded-xl"
+    >
       <td className="p-2 min-w-max">
         <Checkbox label="Select item" />
       </td>
