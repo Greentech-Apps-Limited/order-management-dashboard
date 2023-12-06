@@ -6,7 +6,7 @@ import { transformOrderData } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [orderStat, setOrderState] = useState([]);
+  const [orderStatistics, setOrderStatistics] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function Home() {
         const response = await getOrderStatistics();
         const { order } = response.data;
         const modifiedData = transformOrderData(order);
-        setOrderState(modifiedData);
+        setOrderStatistics(modifiedData);
       } finally {
         setLoading(false);
       }
@@ -34,7 +34,7 @@ export default function Home() {
               <OrderStatusCardSkeleton />
             ) : (
               <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 ">
-                {orderStat.map((orderStatus) => {
+                {orderStatistics.map((orderStatus) => {
                   const { title, icon, value, percentage, isPositivePercentage } = orderStatus;
                   return (
                     <OrderStatusCard
