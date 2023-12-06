@@ -63,7 +63,7 @@ export default function Home() {
                     const { title, icon, value, percentage, isPositivePercentage } = orderStatistic;
                     return (
                       <OrderStatisticCard
-                        key={orderStatistic.title}
+                        key={title}
                         title={title}
                         icon={icon}
                         value={value}
