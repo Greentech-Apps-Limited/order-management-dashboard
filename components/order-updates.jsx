@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClockIcon, InProgressOrderIcon, UpdatesIcon } from '@/icons';
 import { cn, formatDate, uuidv4 } from '@/lib/utils';
-import { ORDER_UPDATES_TYPE } from '@/lib/constants';
+import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import Box from './box';
 import CircleIcon from './circle-icon';
 
@@ -26,8 +26,8 @@ const OrderUpdates = ({ orderUpdates = [] }) => {
 
 export default OrderUpdates;
 const UpdateStatus = ({ orderUpdate = {} }) => {
-  const orderUpdateType = ORDER_UPDATES_TYPE[orderUpdate?.status] ?? {};
-  const { label, icon, color, actionBy } = orderUpdateType;
+  const orderStatusType = ORDER_STATUS_TYPE[orderUpdate?.status] ?? {};
+  const { label, icon, color, actionBy } = orderStatusType;
 
   return (
     <div className="flex flex-col gap-4 mt-5 md:flex-row">
