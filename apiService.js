@@ -15,3 +15,6 @@ export const getOrderStatistics = () => {
 export const getOrderUpdates = () => {
   return api.get(`/updates`);
 };
+export const getOrderList = () => {
+  return api.get(`/orders`);
+};

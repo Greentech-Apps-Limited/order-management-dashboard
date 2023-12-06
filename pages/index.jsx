@@ -1,4 +1,4 @@
-import { getOrderStatistics, getOrderUpdates } from '@/apiService';
+import { getOrderList, getOrderStatistics, getOrderUpdates } from '@/apiService';
 import CustomerSatisfaction from '@/components/customer-satisfaction';
 import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
 import Layout from '@/components/layout';
@@ -14,6 +14,7 @@ export default function Home() {
   const [orderStat, setOrderState] = useState([]);
   const [feedbackData, setFeedbackData] = useState({});
   const [orderUpdates, setOrderUpdates] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchStatistics = async () => {
@@ -41,9 +42,21 @@ export default function Home() {
     }
   };
 
+  const fetchOrderList = async () => {
+    setLoading((prev) => ({ ...prev, orderList: true }));
+
+    try {
+      const response = await getOrderList();
+      setOrders(response.data);
+    } finally {
+      setLoading((prev) => ({ ...prev, orderList: false }));
+    }
+  };
+
   useEffect(() => {
     fetchStatistics();
     fetchUpdates();
+    fetchOrderList();
   }, []);
 
   return (
@@ -90,7 +103,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full my-4 overflow-hidden">
-            <OrderList />
+            <OrderList orders={orders} />
           </div>
         </div>
       </Layout>

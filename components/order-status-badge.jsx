@@ -20,7 +20,7 @@ const OrderStatusBadge = ({ label, variant = 'neutral' }) => {
   }
 
   const badgeClasses = cn(
-    'font-semibold w-max px-2 py-1 rounded-full',
+    'font-semibold w-max px-2 py-1 rounded-full text-sm',
     textColorClass,
     bgColorClass
   );
