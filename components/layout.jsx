@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './header';
 import HeaderMobile from './header-mobile';
-import SideBar from './side-bar';
+import SideBar from './sidebar/side-bar';
 import ResponsiveSidebar from './responsive-sidebar';
 
 const Layout = ({ children }) => {
