@@ -140,8 +140,15 @@ const OrderDetails = () => {
             </div>
             <Box className="xl:col-span-5">
               <p>Live Tracking</p>
-              <div className="mt-2 overflow-hidden rounded-xl">
-                <Image src="/images/map.png" alt="Map Image" width={713} height={379} />
+              <div className="relative mt-2 overflow-hidden rounded-xl min-h-[380px]">
+                <Image
+                  src="/images/map.png"
+                  alt="Map Image"
+                  priority
+                  fill
+                  quality={100}
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
             </Box>
           </section>
