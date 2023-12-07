@@ -1,21 +1,23 @@
 import { useEffect, useState } from 'react';
 
+import { getOrderList, getOrderStatistics, getOrderUpdates } from '@/apiService';
+
 import { transformOrderData } from '@/lib/utils';
-
-import { getOrderStatistics, getOrderUpdates } from '@/apiService';
-
+import CustomerSatisfaction from '@/components/customer-satisfaction';
+import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
 import Layout from '@/components/layout';
+import OrderList from '@/components/order-list';
+import OrderUpdates from '@/components/order-updates';
+import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
 import OrderStatisticCard from '@/components/order-statistic-card';
 import OrderStatisticCardSkeleton from '@/components/order-statistic-card-skeleton';
-import CustomerSatisfactionSkeleton from '@/components/customer-satisfaction-skeleton';
-import CustomerSatisfaction from '@/components/customer-satisfaction';
-import OrderUpdatesSkeleton from '@/components/order-updates-skeleton';
-import OrderUpdates from '@/components/order-updates';
+import OrderListSkeleton from '@/components/order-list-skeleton';
 
 export default function Home() {
   const [orderStatistics, setOrderStatistics] = useState([]);
   const [feedbackData, setFeedbackData] = useState({});
   const [orderUpdates, setOrderUpdates] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchStatistics = async () => {
@@ -43,9 +45,21 @@ export default function Home() {
     }
   };
 
+  const fetchOrderList = async () => {
+    setLoading((prev) => ({ ...prev, orderList: true }));
+
+    try {
+      const response = await getOrderList();
+      setOrders(response.data);
+    } finally {
+      setLoading((prev) => ({ ...prev, orderList: false }));
+    }
+  };
+
   useEffect(() => {
     fetchStatistics();
     fetchUpdates();
+    fetchOrderList();
   }, []);
 
   return (
@@ -90,6 +104,10 @@ export default function Home() {
                 <OrderUpdates orderUpdates={orderUpdates} />
               )}
             </div>
+          </div>
+          <div className="w-full my-4 overflow-hidden">
+            <h2 className="text-xl">Order Summary</h2>
+            {loading.orderList ? <OrderListSkeleton /> : <OrderList orders={orders} />}
           </div>
         </div>
       </Layout>
