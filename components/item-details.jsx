@@ -36,14 +36,4 @@ const ItemDetails = ({ itemDetails = {}, isShortDetails = false }) => {
   );
 };
 
-// // Usage in ItemDetails
-// const ItemDetails = ({ itemDetails = {} }) => {
-//   return <CommonItemDetails itemDetails={itemDetails} />;
-// };
-
-// // Usage in ItemShortDetails
-// const ItemShortDetails = ({ itemDetails }) => {
-//   return <CommonItemDetails itemDetails={itemDetails} isShortDetails />;
-// };
-
 export default ItemDetails;
