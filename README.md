@@ -47,5 +47,4 @@ Visit http://localhost:3000 in your browser to access the Order Management Syste
 
 ## License
 
-License
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/Greentech-Apps-Limited/order-management-dashboard/blob/dev/LICENSE)
