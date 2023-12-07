@@ -3,6 +3,7 @@ import Box from '@/components/box';
 import DownloadInvoice from '@/components/download-invoice';
 import ItemDetails from '@/components/item-details';
 import Layout from '@/components/layout';
+import OrderProgress from '@/components/order-progress';
 import OrderStatusBadge from '@/components/order-status-badge';
 import PaymentInfo from '@/components/payment-info';
 import { ORDER_STATUS_TYPE, customerInfoLabels } from '@/lib/constants';
@@ -131,12 +132,7 @@ const OrderDetails = () => {
               )}
             </div>
             <div className="xl:col-span-7 ">
-              <Box>
-                <p>Order Progress / Status</p>
-                <div className="px-4 py-2 my-2 bg-gray-100 rounded">
-                  <p>Timeline</p>
-                </div>
-              </Box>
+              <OrderProgress orderDetails={orderDetails} />
             </div>
             <Box className="xl:col-span-5">
               <p>Live Tracking</p>
