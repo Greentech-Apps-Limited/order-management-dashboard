@@ -1,11 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
-import { BoxRegularIcon, WeightIcon } from '@/icons';
 import { formatDate } from '@/lib/utils';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import { useRouter } from 'next/router';
 import Checkbox from './checkbox';
 import OrderStatusBadge from './order-status-badge';
+import ItemDetails from './item-details';
 
 const OrderList = ({ orders }) => {
   const tableHeadTitle = [
@@ -64,7 +63,7 @@ const OrderItem = ({ order }) => {
         <div className="min-w-max"> {order.id}</div>
       </td>
       <td className="p-2 min-w-max">
-        <ItemShortDetails itemDetails={order.item} label="Item short details" />
+        <ItemDetails itemDetails={order.item} label="Item short details" isShortDetails />
       </td>
       <td className="p-2">
         <div className="min-w-max">{order.item.type}</div>
@@ -82,35 +81,5 @@ const OrderItem = ({ order }) => {
         <div className="min-w-max"> {formatDate(order.expected_delivery_date, false)}</div>
       </td>
     </tr>
-  );
-};
-
-const ItemShortDetails = ({ itemDetails }) => {
-  return (
-    <div className="flex items-center gap-3">
-      <Image
-        src={`/images/${itemDetails.image}`}
-        alt={itemDetails.name}
-        quality={100}
-        width={48}
-        height={48}
-      />
-      <div>
-        <p>{itemDetails.name}</p>
-        <div className="text-sm text-gray-500">
-          <p>SKU {itemDetails.sku}</p>
-          <div className="flex items-center gap-2 w-max">
-            <div className="flex items-center justify-start gap-0.5">
-              <BoxRegularIcon />
-              <p>{itemDetails.dimension}</p>
-            </div>
-            <div className="flex items-center justify-start gap-0.5">
-              <WeightIcon />
-              <p>{`${itemDetails.weight} (${itemDetails.weight_unit})`}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 };
