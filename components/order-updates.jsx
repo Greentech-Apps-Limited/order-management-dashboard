@@ -5,26 +5,6 @@ import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import Box from './box';
 import CircleIcon from './circle-icon';
 
-const OrderUpdates = ({ orderUpdates = [] }) => {
-  return (
-    <Box className="h-[455px]">
-      <div className="flex flex-col h-full">
-        <div className="flex items-center justify-start gap-2 pt-2 pb-3 border-b border-gray-100">
-          <UpdatesIcon className="text-lg" />
-          <p className="text-gray-500">Updates</p>
-        </div>
-
-        <div className="flex-1 overflow-y-auto">
-          {orderUpdates.map((update) => (
-            <UpdateStatus key={uuidv4()} orderUpdate={update} />
-          ))}
-        </div>
-      </div>
-    </Box>
-  );
-};
-
-export default OrderUpdates;
 const UpdateStatus = ({ orderUpdate = {} }) => {
   const orderStatusType = ORDER_STATUS_TYPE[orderUpdate?.status] ?? {};
   const { label, icon, color, actionBy } = orderStatusType;
@@ -60,3 +40,24 @@ const UpdateStatus = ({ orderUpdate = {} }) => {
     </div>
   );
 };
+
+const OrderUpdates = ({ orderUpdates = [] }) => {
+  return (
+    <Box className="h-[455px]">
+      <div className="flex flex-col h-full">
+        <div className="flex items-center justify-start gap-2 pt-2 pb-3 border-b border-gray-100">
+          <UpdatesIcon className="text-lg" />
+          <p className="text-gray-500">Updates</p>
+        </div>
+
+        <div className="flex-1 overflow-y-auto">
+          {orderUpdates.map((update) => (
+            <UpdateStatus key={uuidv4()} orderUpdate={update} />
+          ))}
+        </div>
+      </div>
+    </Box>
+  );
+};
+
+export default OrderUpdates;
