@@ -16,6 +16,7 @@ import { formatDate } from '@/lib/utils';
 import CustomerInfo from '@/components/customer-info';
 import SkeletonLoader from '@/components/skeleton-loader';
 import CustomerInfoSkeleton from '@/components/customer-info-skeleton';
+import BackButton from '@/components/back-button';
 
 const OrderDetails = () => {
   const {
@@ -64,7 +65,8 @@ const OrderDetails = () => {
     <main>
       <Layout>
         <div className="p-4">
-          <div>
+          <div className="flex items-center gap-2">
+            <BackButton />
             <h1 className="text-xl">Order Details</h1>
           </div>
           <section className="mt-4">

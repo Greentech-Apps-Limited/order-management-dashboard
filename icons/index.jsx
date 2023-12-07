@@ -31,3 +31,4 @@ export { default as WeightIcon } from './weight-icon.svg';
 export { default as DownloadIcon } from './download-icon.svg';
 export { default as BulletActiveIcon } from './bullet-active-icon.svg';
 export { default as BulletIcon } from './bullet-icon.svg';
+export { default as ArrowLeftIcon } from './arrow-left-icon.svg';
