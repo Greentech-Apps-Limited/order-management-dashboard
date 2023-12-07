@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { cn } from '@/lib/utils';
 import { REVIEW_STAT_TYPE } from '@/lib/constants';
 
 import Box from './box';
@@ -9,14 +8,7 @@ import CircleIcon from './circle-icon';
 const StatItem = ({ icon, label, value, iconBgColor }) => {
   return (
     <div className="flex items-center h-full gap-4 md:gap-0 md:items-start md:flex-col ">
-      <CircleIcon
-        className={cn({
-          'text-gray-700 ': true,
-          'bg-gray-100': iconBgColor === 'neutral',
-          'bg-success': iconBgColor === 'success',
-          'bg-critical': iconBgColor === 'critical',
-        })}
-      >
+      <CircleIcon className="text-base text-gray-700 " variant={iconBgColor}>
         {icon}
       </CircleIcon>
       <div>

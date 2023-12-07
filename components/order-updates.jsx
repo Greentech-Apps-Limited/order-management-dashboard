@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClockIcon, InProgressOrderIcon, UpdatesIcon } from '@/icons';
-import { cn, formatDate, uuidv4 } from '@/lib/utils';
+import { formatDate, uuidv4 } from '@/lib/utils';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import Box from './box';
 import CircleIcon from './circle-icon';
@@ -11,14 +11,7 @@ const UpdateStatus = ({ orderUpdate = {} }) => {
 
   return (
     <div className="flex flex-col gap-4 mt-5 md:flex-row">
-      <CircleIcon
-        className={cn({
-          'text-gray-700 text-base': true,
-          'bg-gray-100': color === 'neutral',
-          'bg-success': color === 'success',
-          'bg-critical': color === 'critical',
-        })}
-      >
+      <CircleIcon className="text-base text-gray-700" variant={color}>
         {icon}
       </CircleIcon>
       <div className="text-gray-800">
