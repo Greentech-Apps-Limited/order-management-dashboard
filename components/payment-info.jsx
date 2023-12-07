@@ -11,7 +11,7 @@ const PaymentInfo = ({ totalItem, totalWeight, weightUnit, shippingCharge, total
           <div className="text-gray-500">
             <p>Sub-total</p>
             <p className="mt-2">Shipping</p>
-            <p className="mt-2">Total paid </p>
+            <p className="mt-2">Total</p>
           </div>
           <div className="text-gray-500">
             <p>{`${totalItem} Items`}</p>

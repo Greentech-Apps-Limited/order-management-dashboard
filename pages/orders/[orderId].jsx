@@ -33,7 +33,7 @@ const OrderDetails = () => {
     const unpaidStatuses = ['created', 'payment_pending', 'cancelled'];
     if (unpaidStatuses.includes(status)) {
       return setPaymentStatus({
-        label: 'Unpaid',
+        label: 'Payment pending',
         color: 'critical',
       });
     }

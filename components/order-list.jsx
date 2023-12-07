@@ -16,7 +16,7 @@ const OrderItem = ({ order }) => {
       onClick={handleNavigation}
       className="text-gray-800 border-t border-gray-200 cursor-pointer text-start hover:bg-gray rounded-xl"
     >
-      <td className="p-2">
+      <td className="p-2 pl-4">
         <div className="min-w-max"> {order.id}</div>
       </td>
       <td className="p-2 min-w-max">
@@ -55,10 +55,14 @@ const OrderList = ({ orders }) => {
     <div className="w-full">
       <div className="my-4 overflow-x-auto border border-gray-200 rounded-xl">
         <table className="w-full text-left text-gray-500 bg-neutral">
-          <thead className="text-sm ">
+          <thead className="text-sm">
             <tr>
-              {tableHeadTitle.map((title) => (
-                <th key={title} scope="col" className="p-2 text-sm font-normal text-start ">
+              {tableHeadTitle.map((title, index) => (
+                <th
+                  key={title}
+                  scope="col"
+                  className={`${index === 0 ? 'pl-4' : ''} p-2 text-sm font-normal text-start `}
+                >
                   <div className="min-w-max"> {title}</div>
                 </th>
               ))}

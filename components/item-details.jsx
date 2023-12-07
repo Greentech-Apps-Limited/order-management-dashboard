@@ -11,6 +11,7 @@ const ItemDetails = ({ itemDetails = {}, isShortDetails = false }) => {
       <Image
         src={`/images/${itemDetails?.image}`}
         alt={itemDetails?.name}
+        className="rounded"
         quality={100}
         {...imageSize}
       />
