@@ -14,6 +14,8 @@ import PaymentInfo from '@/components/payment-info';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import { formatDate } from '@/lib/utils';
 import CustomerInfo from '@/components/customer-info';
+import SkeletonLoader from '@/components/skeleton-loader';
+import CustomerInfoSkeleton from '@/components/customer-info-skeleton';
 
 const OrderDetails = () => {
   const {
@@ -24,7 +26,7 @@ const OrderDetails = () => {
   const [orderStatusType, setOrderStatusType] = useState({});
   const [customerInfo, setCustomerInfo] = useState({});
   const [paymentStatus, setPaymentStatus] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState({ details: true });
 
   const handlePaymentStatus = (status) => {
     const unpaidStatuses = ['created', 'payment_pending', 'cancelled'];
@@ -66,37 +68,52 @@ const OrderDetails = () => {
             <h1 className="text-xl">Order Details</h1>
           </div>
           <section className="mt-4">
-            <Box className="flex flex-col justify-between gap-4 md:items-center md:flex-row">
-              <div>
-                <p className="text-lg text-gray-700">{`Order ID: ${orderDetails.id}`}</p>
-                <p className="my-2 text-gray-600">{`Order Date: ${formatDate(
-                  orderDetails.created_at
-                )}`}</p>
-                <OrderStatusBadge
-                  label={orderStatusType.badgeTitle}
-                  variant={orderStatusType.color}
-                />
-              </div>
-              <DownloadInvoice />
-            </Box>
+            {loading.details ? (
+              <SkeletonLoader className="h-[128px]" />
+            ) : (
+              <Box className="flex flex-col justify-between gap-4 md:items-center md:flex-row">
+                <div>
+                  <p className="text-lg text-gray-700">{`Order ID: ${orderDetails.id}`}</p>
+                  <p className="my-2 text-gray-600">{`Order Date: ${formatDate(
+                    orderDetails.created_at
+                  )}`}</p>
+                  <OrderStatusBadge
+                    label={orderStatusType.badgeTitle}
+                    variant={orderStatusType.color}
+                  />
+                </div>
+                <DownloadInvoice />
+              </Box>
+            )}
           </section>
           <section className="mt-4">
-            <CustomerInfo
-              customerInfo={customerInfo}
-              orderDetails={orderDetails}
-              paymentStatus={paymentStatus}
-            />
+            {loading.details ? (
+              <CustomerInfoSkeleton />
+            ) : (
+              <CustomerInfo
+                customerInfo={customerInfo}
+                orderDetails={orderDetails}
+                paymentStatus={paymentStatus}
+              />
+            )}
           </section>
           <section className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-12">
-            <Box className="xl:col-span-7 ">
-              <p>Product Details</p>
-              <div className="mt-2">
-                <ItemDetails itemDetails={orderDetails?.item} />
-              </div>
-            </Box>
+            <div className="xl:col-span-7 ">
+              {loading.details ? (
+                <SkeletonLoader className="h-[152px]" />
+              ) : (
+                <Box>
+                  <p>Product Details</p>
+                  <div className="mt-2">
+                    <ItemDetails itemDetails={orderDetails?.item} />
+                  </div>
+                </Box>
+              )}
+            </div>
+
             <div className="xl:col-span-5 ">
               {loading.details ? (
-                <div>loading</div>
+                <SkeletonLoader className="h-[152px]" />
               ) : (
                 <PaymentInfo
                   totalItem={orderDetails.total_quantity}
@@ -108,10 +125,14 @@ const OrderDetails = () => {
               )}
             </div>
             <div className="xl:col-span-7 ">
-              <OrderProgress orderDetails={orderDetails} />
+              {loading.details ? (
+                <SkeletonLoader className="h-[444px]" />
+              ) : (
+                <OrderProgress orderDetails={orderDetails} />
+              )}
             </div>
             <div className="xl:col-span-5">
-              <OrderLocationTrack />
+              {loading.details ? <SkeletonLoader className="h-[444px]" /> : <OrderLocationTrack />}
             </div>
           </section>
         </div>
