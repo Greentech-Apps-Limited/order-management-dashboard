@@ -7,8 +7,16 @@ import OrderStatusBadge from '@/components/order-status-badge';
 import PaymentInfo from '@/components/payment-info';
 import { ORDER_STATUS_TYPE, customerInfoLabels } from '@/lib/constants';
 import { formatDate } from '@/lib/utils';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+
+const DetailRow = ({ label, value, isFirstItem }) => (
+  <div className={`flex gap-3 ${isFirstItem ? '' : 'mt-2'}`}>
+    <div className="min-w-[85px] text-gray-500">{label}</div>
+    <div>{value}</div>
+  </div>
+);
 
 const OrderDetails = () => {
   const {
@@ -102,20 +110,40 @@ const OrderDetails = () => {
               </div>
             </Box>
           </section>
-          <section className="grid grid-cols-12 gap-4 mt-4">
-            <Box className="col-span-7 ">
+          <section className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-12">
+            <Box className="xl:col-span-7 ">
               <p>Product Details</p>
               <div className="mt-2">
                 <ItemDetails itemDetails={orderDetails?.item} />
               </div>
             </Box>
-            <PaymentInfo
-              totalItem={orderDetails.total_quantity}
-              totalWeight={orderDetails.total_weight}
-              weightUnit={orderDetails.item.weight_unit}
-              shippingCharge={orderDetails.shipping_charge}
-              totalItemPrice={orderDetails.total_amount}
-            />
+            <div className="xl:col-span-5 ">
+              {loading.details ? (
+                <div>loading</div>
+              ) : (
+                <PaymentInfo
+                  totalItem={orderDetails.total_quantity}
+                  totalWeight={orderDetails.total_weight}
+                  weightUnit={orderDetails.item?.weight_unit}
+                  shippingCharge={orderDetails.shipping_charge}
+                  totalItemPrice={orderDetails.total_amount}
+                />
+              )}
+            </div>
+            <div className="xl:col-span-7 ">
+              <Box>
+                <p>Order Progress / Status</p>
+                <div className="px-4 py-2 my-2 bg-gray-100 rounded">
+                  <p>Timeline</p>
+                </div>
+              </Box>
+            </div>
+            <Box className="xl:col-span-5">
+              <p>Live Tracking</p>
+              <div className="mt-2 overflow-hidden rounded-xl">
+                <Image src="/images/map.png" alt="Map Image" width={713} height={379} />
+              </div>
+            </Box>
           </section>
         </div>
       </Layout>
@@ -124,10 +152,3 @@ const OrderDetails = () => {
 };
 
 export default OrderDetails;
-
-const DetailRow = ({ label, value, isFirstItem }) => (
-  <div className={`flex gap-3 ${isFirstItem ? '' : 'mt-2'}`}>
-    <div className="min-w-[85px] text-gray-500">{label}</div>
-    <div>{value}</div>
-  </div>
-);

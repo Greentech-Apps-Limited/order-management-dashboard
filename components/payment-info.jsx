@@ -4,9 +4,9 @@ import Box from './box';
 const PaymentInfo = ({ totalItem, totalWeight, weightUnit, shippingCharge, totalItemPrice }) => {
   const totalCharge = Number(shippingCharge) + Number(totalItemPrice);
   return (
-    <Box className="col-span-5 ">
+    <Box>
       <p>Payment Info</p>
-      <div className="flex items-start justify-between mt-2">
+      <div className="flex items-start justify-between mt-2 text-sm sm:text-base">
         <div className="flex items-start gap-10">
           <div className="text-gray-500">
             <p>Sub-total</p>
