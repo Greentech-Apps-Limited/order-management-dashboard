@@ -1,16 +1,18 @@
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+
 import { getOrderDetails } from '@/apiService';
+
 import Box from '@/components/box';
 import DownloadInvoice from '@/components/download-invoice';
 import ItemDetails from '@/components/item-details';
 import Layout from '@/components/layout';
+import OrderLocationTrack from '@/components/order-location-track';
 import OrderProgress from '@/components/order-progress';
 import OrderStatusBadge from '@/components/order-status-badge';
 import PaymentInfo from '@/components/payment-info';
 import { ORDER_STATUS_TYPE, customerInfoLabels } from '@/lib/constants';
 import { formatDate } from '@/lib/utils';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
 
 const DetailRow = ({ label, value, isFirstItem }) => (
   <div className={`flex gap-3 ${isFirstItem ? '' : 'mt-2'}`}>
@@ -30,8 +32,9 @@ const OrderDetails = () => {
   const [paymentStatus, setPaymentStatus] = useState({});
   const [loading, setLoading] = useState(false);
 
-  const handlePaymentStatus = (details) => {
-    if (details.status === ('created' || 'payment_pending' || 'cancelled')) {
+  const handlePaymentStatus = (status) => {
+    const unpaidStatuses = ['created', 'payment_pending', 'cancelled'];
+    if (unpaidStatuses.includes(status)) {
       return setPaymentStatus({
         label: 'Unpaid',
         color: 'critical',
@@ -134,19 +137,9 @@ const OrderDetails = () => {
             <div className="xl:col-span-7 ">
               <OrderProgress orderDetails={orderDetails} />
             </div>
-            <Box className="xl:col-span-5">
-              <p>Live Tracking</p>
-              <div className="relative mt-2 overflow-hidden rounded-xl min-h-[380px]">
-                <Image
-                  src="/images/map.png"
-                  alt="Map Image"
-                  priority
-                  fill
-                  quality={100}
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            </Box>
+            <div className="xl:col-span-5">
+              <OrderLocationTrack />
+            </div>
           </section>
         </div>
       </Layout>
