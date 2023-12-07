@@ -28,3 +28,7 @@ export { default as UpdatesIcon } from './updates-icon.svg';
 export { default as ClockIcon } from './clock-icon.svg';
 export { default as BoxRegularIcon } from './box-regular-icon.svg';
 export { default as WeightIcon } from './weight-icon.svg';
+export { default as DownloadIcon } from './download-icon.svg';
+export { default as BulletActiveIcon } from './bullet-active-icon.svg';
+export { default as BulletIcon } from './bullet-icon.svg';
+export { default as ArrowLeftIcon } from './arrow-left-icon.svg';

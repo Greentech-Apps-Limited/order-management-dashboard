@@ -74,7 +74,14 @@ export default function Home() {
               ) : (
                 <section className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   {orderStatistics.map((orderStatistic) => {
-                    const { title, icon, value, percentage, isPositivePercentage } = orderStatistic;
+                    const {
+                      title,
+                      icon,
+                      value,
+                      percentage,
+                      isPositivePercentage,
+                      isCancelledType,
+                    } = orderStatistic;
                     return (
                       <OrderStatisticCard
                         key={title}
@@ -83,6 +90,7 @@ export default function Home() {
                         value={value}
                         percentage={percentage}
                         isPositivePercentage={isPositivePercentage}
+                        isCancelledType={isCancelledType}
                       />
                     );
                   })}

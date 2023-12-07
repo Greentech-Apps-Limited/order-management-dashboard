@@ -18,3 +18,6 @@ export const getOrderUpdates = () => {
 export const getOrderList = () => {
   return api.get(`/orders`);
 };
+export const getOrderDetails = (id) => {
+  return api.get(`/orders/${id}`);
+};
