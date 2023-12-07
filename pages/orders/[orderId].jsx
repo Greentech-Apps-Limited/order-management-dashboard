@@ -11,15 +11,9 @@ import OrderLocationTrack from '@/components/order-location-track';
 import OrderProgress from '@/components/order-progress';
 import OrderStatusBadge from '@/components/order-status-badge';
 import PaymentInfo from '@/components/payment-info';
-import { ORDER_STATUS_TYPE, customerInfoLabels } from '@/lib/constants';
+import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import { formatDate } from '@/lib/utils';
-
-const DetailRow = ({ label, value, isFirstItem }) => (
-  <div className={`flex gap-3 ${isFirstItem ? '' : 'mt-2'}`}>
-    <div className="min-w-[85px] text-gray-500">{label}</div>
-    <div>{value}</div>
-  </div>
-);
+import CustomerInfo from '@/components/customer-info';
 
 const OrderDetails = () => {
   const {
@@ -87,32 +81,11 @@ const OrderDetails = () => {
             </Box>
           </section>
           <section className="mt-4">
-            <Box className="flex flex-col items-start justify-between gap-6 text-sm md:text-base md:flex-row">
-              <div>
-                {Object.keys(customerInfoLabels).map((key, index) => (
-                  <DetailRow
-                    key={key}
-                    label={customerInfoLabels[key]}
-                    value={customerInfo[key]}
-                    isFirstItem={index === 0}
-                  />
-                ))}
-              </div>
-              <div>
-                <DetailRow label="Note" value={customerInfo.customer_note} isFirstItem />
-                <DetailRow
-                  label="Landmark"
-                  value={`Order Date: ${formatDate(orderDetails.created_at)}`}
-                />
-                <DetailRow label="Payment" value={customerInfo.payment_type} />
-                <DetailRow
-                  label="Status"
-                  value={
-                    <OrderStatusBadge label={paymentStatus.label} variant={paymentStatus.color} />
-                  }
-                />
-              </div>
-            </Box>
+            <CustomerInfo
+              customerInfo={customerInfo}
+              orderDetails={orderDetails}
+              paymentStatus={paymentStatus}
+            />
           </section>
           <section className="grid grid-cols-1 gap-4 mt-4 xl:grid-cols-12">
             <Box className="xl:col-span-7 ">
