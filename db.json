@@ -10,7 +10,7 @@
         "weight_unit": "kg",
         "dimension": "1.2 X 1.2 X 1.2",
         "unit_price": 10,
-        "image": "tshirt.jpg"
+        "image": "tshirt.webp"
       },
       "customer": {
         "name": "Shehab Ahmed",
@@ -46,7 +46,7 @@
         "weight_unit": "kg",
         "dimension": "0.3 X 0.3 X 0.8",
         "unit_price": 20,
-        "image": "flask.jpg"
+        "image": "flask.webp"
       },
       "customer": {
         "name": "Yemin Sajid",
@@ -82,7 +82,7 @@
         "weight_unit": "kg",
         "dimension": "0.3 X 0.3 X 0.8",
         "unit_price": 20,
-        "image": "flask.jpg"
+        "image": "flask.webp"
       },
       "customer": {
         "name": "Maharab Hossain",
@@ -118,7 +118,7 @@
         "weight_unit": "kg",
         "dimension": "0.8 X 0.5 X 1.0",
         "unit_price": 50,
-        "image": "bag.jpg"
+        "image": "bag.webp"
       },
       "customer": {
         "name": "Asif Bin Latif",
@@ -154,7 +154,7 @@
         "weight_unit": "kg",
         "dimension": "1.2 X 1.2 X 1.2",
         "unit_price": 12,
-        "image": "jersey.jpg"
+        "image": "jersey.webp"
       },
       "customer": {
         "name": "Nazmus Sakib",

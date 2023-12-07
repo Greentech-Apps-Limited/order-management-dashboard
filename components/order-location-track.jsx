@@ -8,7 +8,7 @@ const OrderLocationTrack = () => {
       <p>Live Tracking</p>
       <div className="relative mt-2 overflow-hidden rounded-xl min-h-[260px]">
         <Image
-          src="/images/map.png"
+          src="/images/map.webp"
           alt="Map Image"
           priority
           fill
