@@ -1,6 +1,6 @@
 import React from 'react';
 import { ClockIcon, InProgressOrderIcon, UpdatesIcon } from '@/icons';
-import { formatDate, uuidv4 } from '@/lib/utils';
+import { formatDateTime, uuidv4 } from '@/lib/utils';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import Box from './box';
 import CircleIcon from './circle-icon';
@@ -26,7 +26,7 @@ const UpdateStatus = ({ orderUpdate = {} }) => {
           </div>
           <div className="flex items-center gap-2">
             <ClockIcon />
-            <p>{formatDate(orderUpdate.updated_at)}</p>
+            <p>{formatDateTime(orderUpdate.updated_at)}</p>
           </div>
         </div>
       </div>

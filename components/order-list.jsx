@@ -35,7 +35,7 @@ const OrderItem = ({ order }) => {
         <OrderStatusBadge label={statusType.badgeTitle} variant={statusType.color} />
       </td>
       <td className="p-2">
-        <div className="min-w-max"> {formatDate(order.expected_delivery_date, false)}</div>
+        <div className="min-w-max"> {formatDate(order.expected_delivery_date)}</div>
       </td>
     </tr>
   );
