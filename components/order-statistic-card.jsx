@@ -5,23 +5,6 @@ import { cn } from '@/lib/utils';
 import Box from './box';
 import CircleIcon from './circle-icon';
 
-const OrderStatisticCard = ({ title, icon, value, percentage, isPositivePercentage }) => {
-  return (
-    <Box>
-      <div className="flex items-start gap-3">
-        <CircleIcon>{icon}</CircleIcon>
-        <div>
-          <p className="text-gray-600">{title}</p>
-          <p className="text-2xl font-semibold">{value}</p>
-          <PercentageStatus percentage={percentage} isPositivePercentage={isPositivePercentage} />
-        </div>
-      </div>
-    </Box>
-  );
-};
-
-export default OrderStatisticCard;
-
 const PercentageStatus = ({ isPositivePercentage, percentage }) => {
   const renderIconAndText = (arrowIcon, text) => (
     <div
@@ -53,3 +36,20 @@ const PercentageStatus = ({ isPositivePercentage, percentage }) => {
 
   return renderIconAndText(false, '--Average');
 };
+
+const OrderStatisticCard = ({ title, icon, value, percentage, isPositivePercentage }) => {
+  return (
+    <Box>
+      <div className="flex items-start gap-3">
+        <CircleIcon>{icon}</CircleIcon>
+        <div>
+          <p className="text-gray-600">{title}</p>
+          <p className="text-2xl font-semibold">{value}</p>
+          <PercentageStatus percentage={percentage} isPositivePercentage={isPositivePercentage} />
+        </div>
+      </div>
+    </Box>
+  );
+};
+
+export default OrderStatisticCard;

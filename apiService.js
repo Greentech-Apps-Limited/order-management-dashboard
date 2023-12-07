@@ -12,3 +12,6 @@ export default api;
 export const getOrderStatistics = () => {
   return api.get(`/statistics`);
 };
+export const getOrderUpdates = () => {
+  return api.get(`/updates`);
+};
