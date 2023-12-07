@@ -1,7 +1,7 @@
 import React from 'react';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import { BulletActiveIcon, BulletIcon } from '@/icons';
-import { formatDate } from '@/lib/utils';
+import { formatDateTime } from '@/lib/utils';
 
 import Box from './box';
 
@@ -28,7 +28,7 @@ const OrderProgress = ({ orderDetails }) => {
                 <div>{timestampValue ? <BulletActiveIcon /> : <BulletIcon />}</div>
                 <div className="flex justify-between text-sm grow">
                   <div className="text-gray-500">{status.label}</div>
-                  <div>{timestampValue ? formatDate(timestampValue) : ''}</div>
+                  <div>{timestampValue ? formatDateTime(timestampValue) : ''}</div>
                 </div>
               </div>
             );

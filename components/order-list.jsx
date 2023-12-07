@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '@/lib/utils';
+import { formatDateTime } from '@/lib/utils';
 import { ORDER_STATUS_TYPE } from '@/lib/constants';
 import { useRouter } from 'next/router';
 import OrderStatusBadge from './order-status-badge';
@@ -35,7 +35,7 @@ const OrderItem = ({ order }) => {
         <OrderStatusBadge label={statusType.badgeTitle} variant={statusType.color} />
       </td>
       <td className="p-2">
-        <div className="min-w-max"> {formatDate(order.expected_delivery_date)}</div>
+        <div className="min-w-max"> {formatDateTime(order.expected_delivery_date)}</div>
       </td>
     </tr>
   );

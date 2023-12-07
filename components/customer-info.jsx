@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CUSTOMER_INFO_LABELS } from '@/lib/constants';
-import { formatDate } from '@/lib/utils';
+import { formatDateTime } from '@/lib/utils';
 
 import Box from './box';
 import OrderStatusBadge from './order-status-badge';
@@ -28,7 +28,10 @@ const CustomerInfo = ({ customerInfo, orderDetails, paymentStatus }) => {
       </div>
       <div>
         <DetailRow label="Note" value={customerInfo.customer_note} isFirstItem />
-        <DetailRow label="Landmark" value={`Order Date: ${formatDate(orderDetails.created_at)}`} />
+        <DetailRow
+          label="Landmark"
+          value={`Order Date: ${formatDateTime(orderDetails.created_at)}`}
+        />
         <DetailRow label="Payment" value={customerInfo.payment_type} />
         <DetailRow
           label="Status"

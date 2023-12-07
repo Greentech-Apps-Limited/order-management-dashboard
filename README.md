@@ -1,6 +1,6 @@
-# Order Management System
+# Order Management Dashboard
 
-This is an Order Management System built using Next.js.
+This is an Order Management Dashboard built using Next.js.
 
 ## Installation
 
@@ -8,7 +8,7 @@ This is an Order Management System built using Next.js.
 
 ```bash
 git clone <repository-url>
-cd order-management-system
+cd order-management-dashboard
 ```
 
 **Use the recommended Node.js version:**
@@ -43,7 +43,7 @@ Now that you have installed the project and configured the environment, you can 
 npm run dev
 ```
 
-Visit http://localhost:3000 in your browser to access the Order Management System.
+Visit http://localhost:3000 in your browser to access the Order Management Dashboard.
 
 ## License
 
