@@ -4,6 +4,7 @@ import DownloadInvoice from '@/components/download-invoice';
 import ItemDetails from '@/components/item-details';
 import Layout from '@/components/layout';
 import OrderStatusBadge from '@/components/order-status-badge';
+import PaymentInfo from '@/components/payment-info';
 import { ORDER_STATUS_TYPE, customerInfoLabels } from '@/lib/constants';
 import { formatDate } from '@/lib/utils';
 import { useRouter } from 'next/router';
@@ -55,10 +56,10 @@ const OrderDetails = () => {
     <main>
       <Layout>
         <div className="p-4">
-          <div className="my-4">
+          <div>
             <h1 className="text-xl">Order Details</h1>
           </div>
-          <section>
+          <section className="mt-4">
             <Box className="flex flex-col justify-between gap-4 md:items-center md:flex-row">
               <div>
                 <p className="text-lg text-gray-700">{`Order ID: ${orderDetails.id}`}</p>
@@ -101,19 +102,20 @@ const OrderDetails = () => {
               </div>
             </Box>
           </section>
-          <section className="mt-4">
-            <Box>
+          <section className="grid grid-cols-12 gap-4 mt-4">
+            <Box className="col-span-7 ">
               <p>Product Details</p>
               <div className="mt-2">
                 <ItemDetails itemDetails={orderDetails?.item} />
               </div>
             </Box>
-            <Box>
-              <p>Product Details</p>
-              <div className="mt-2">
-                <ItemDetails itemDetails={orderDetails?.item} />
-              </div>
-            </Box>
+            <PaymentInfo
+              totalItem={orderDetails.total_quantity}
+              totalWeight={orderDetails.total_weight}
+              weightUnit={orderDetails.item.weight_unit}
+              shippingCharge={orderDetails.shipping_charge}
+              totalItemPrice={orderDetails.total_amount}
+            />
           </section>
         </div>
       </Layout>
