@@ -128,13 +128,13 @@ const OrderDetails = () => {
             </div>
             <div className="xl:col-span-7 ">
               {loading.details ? (
-                <SkeletonLoader className="h-[444px]" />
+                <SkeletonLoader className="h-[324px]" />
               ) : (
                 <OrderProgress orderDetails={orderDetails} />
               )}
             </div>
             <div className="xl:col-span-5">
-              {loading.details ? <SkeletonLoader className="h-[444px]" /> : <OrderLocationTrack />}
+              {loading.details ? <SkeletonLoader className="h-[324px]" /> : <OrderLocationTrack />}
             </div>
           </section>
         </div>

@@ -6,7 +6,7 @@ const OrderLocationTrack = () => {
   return (
     <Box>
       <p>Live Tracking</p>
-      <div className="relative mt-2 overflow-hidden rounded-xl min-h-[380px]">
+      <div className="relative mt-2 overflow-hidden rounded-xl min-h-[260px]">
         <Image
           src="/images/map.png"
           alt="Map Image"
